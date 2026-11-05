@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduSimplify | AI Learning Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">E</span> EduSimplify</a>
+    <span class="top-note">AI-powered learning assistant</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">LEARN WITHOUT LIMITS</div>
+      <h1>Make complex topics <span>simple.</span></h1>
+      <p>Upload your notes or paste course content. Choose your learning level and let EduSimplify help you understand it.</p>
+      <div class="hero-tags"><span>✦ Student friendly</span><span>✦ Multiple learning levels</span><span>✦ IBM Granite ready</span></div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel input-panel">
+        <div class="section-heading"><div><span class="step">01</span><h2>Add your study material</h2></div></div>
+        <label class="dropzone" for="file">
+          <span class="upload-icon">↑</span>
+          <strong>Choose a file to upload</strong>
+          <span>PDF, PPTX or TXT · Maximum 15 MB</span>
+          <span id="file-name" class="file-name">No file selected</span>
+        </label>
+        <input id="file" type="file" accept=".pdf,.pptx,.txt" hidden>
+        <div class="divider"><span>OR PASTE TEXT</span></div>
+        <textarea id="course-text" placeholder="Paste your textbook paragraph, lecture notes or any difficult topic here..."></textarea>
+
+        <div class="options-grid">
+          <div>
+            <label for="level">Your learning level</label>
+            <select id="level">
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+              <option>Expert</option>
+            </select>
+          </div>
+          <div>
+            <label for="task">What do you need?</label>
+            <select id="task">
+              <option>Simplify</option>
+              <option>Summarize</option>
+              <option>Key points</option>
+              <option>Examples</option>
+              <option>Quiz</option>
+            </select>
+          </div>
+        </div>
+        <button id="submit-btn" class="primary-btn">✦ Simplify my content <span>→</span></button>
+        <p class="privacy-note">Your material is processed for this request and is not saved to a database.</p>
+      </div>
+
+      <div class="panel result-panel">
+        <div class="section-heading result-heading"><div><span class="step">02</span><h2>Your learning result</h2></div><span id="mode-badge" class="badge">Checking AI...</span></div>
+        <div id="empty-state" class="empty-state">
+          <div class="book-illustration">✧</div>
+          <h3>Your explanation will appear here</h3>
+          <p>Add study material, choose your level, and click the button to get started.</p>
+          <div class="tip"><strong>Learning tip</strong><br>Start with Beginner mode if a topic feels completely new.</div>
+        </div>
+        <div id="loading" class="loading hidden"><div class="spinner"></div><strong>Working on your material...</strong><span>Good explanations take a moment.</span></div>
+        <div id="error" class="error hidden"></div>
+        <article id="result" class="result-content hidden"></article>
+        <div id="result-footer" class="result-footer hidden"><span id="source-label"></span><button id="copy-btn" class="secondary-btn">Copy result</button></div>
+      </div>
+    </section>
+    <footer>EduSimplify · Built for accessible and personalized learning</footer>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
